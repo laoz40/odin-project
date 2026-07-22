@@ -1,11 +1,8 @@
-name: Deploy recipe site
+name: Deploy Odin projects
 
 on:
   push:
     branches: [main]
-    paths:
-      - "odin-recipes/**"
-      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -31,7 +28,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: odin-recipes
+          path: .
 
       - name: Deploy
         id: deployment
