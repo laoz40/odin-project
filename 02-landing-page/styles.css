@@ -67,6 +67,13 @@ nav ul {
   color: var(--text-secondary);
 }
 
+nav a {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	color: var(--text-secondary);
+}
+
 /* HERO SECTION */
 
 .hero {
