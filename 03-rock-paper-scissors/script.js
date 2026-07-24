@@ -16,20 +16,15 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
   console.log(`You: ${humanChoice}, Bot: ${computerChoice}`);
 
-  if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("You win!");
-    return true;
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("You win!");
-    return true;
-  } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You win!");
+  if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
     return true;
   } else if (humanChoice === computerChoice) {
-    console.log("It's a tie!");
     return "tie";
   } else {
-    console.log("You suck!");
     return false;
   }
 }
@@ -45,8 +40,19 @@ function playGame() {
 
     const result = playRound(getHumanChoice(), getComputerChoice());
 
-    if (result === "tie") continue;
-    result ? userScore++ : computerScore++;
+		switch (result) {
+			case true:
+				userScore++;
+				console.log("ez win!");
+				break;
+			case false:
+				computerScore++;
+				console.log("You suck!");
+				break;
+			case "tie":
+				console.log("Tie!");
+				break;
+		}
   }
 
   console.log("==================================");
