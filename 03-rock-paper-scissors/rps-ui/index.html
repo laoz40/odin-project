@@ -10,7 +10,7 @@
     <a href="../../index.html">Back to Home</a>
 
     <h1>Rock Paper Scissors UI Version</h1>
-    <p>Choose rock, paper, or scissors.</p>
+    <p>First to 5 wins!</p>
 
     <div>
       <button id="rock">Rock</button>
@@ -20,20 +20,20 @@
 
     <div>
       <div style="display: flex; flex-direction: row; gap: 1rem">
-        <p>You: <span id="humanChoice"></span></p>
-        <p>Bot: <span id="computerChoice"></span></p>
+        <p>You: <strong id="humanChoice"></strong></p>
+        <p>Bot: <strong id="computerChoice"></strong></p>
       </div>
-      <p id="result" style="font-weight: bold"></p>
+      <p><strong id="result"></strong></p>
     </div>
 
     <h2>Game Score</h2>
     <div style="display: flex; flex-direction: row; gap: 1rem">
-      <p>Your Score: <span id="userScore">0</span></p>
-      <p>Computer Score: <span id="computerScore">0</span></p>
+      <p>Your Score: <strong id="userScore">0</strong></p>
+      <p>Computer Score: <strong id="computerScore">0</strong></p>
     </div>
 
     <dialog>
-			<p id="winner"></p>
+			<h1 id="winner"></h1>
 			<button id="playAgain">Play Again?</button>
 		</dialog>
 
