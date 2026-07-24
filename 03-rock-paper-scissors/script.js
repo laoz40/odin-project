@@ -1,12 +1,11 @@
 function getComputerChoice() {
-  const randomInt = Math.floor(Math.random() * 3);
-  switch (randomInt) {
-    case 0:
-      return "rock";
-    case 1:
-      return "paper";
-    case 2:
-      return "scissors";
+  const random = Math.random();
+  if (random < 1 / 3) {
+    return "rock";
+  } else if (random < 2 / 3) {
+    return "paper";
+  } else {
+    return "scissors";
   }
 }
 
