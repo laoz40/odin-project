@@ -7,12 +7,35 @@
   </head>
 
   <body>
-		<a href="../../index.html">Back to Home</a>
+    <a href="../../index.html">Back to Home</a>
 
-		<h1>Rock Paper Scissors UI Version</h1>
-		<p>This is a rock paper scissors game.</p>
+    <h1>Rock Paper Scissors UI Version</h1>
+    <p>Choose rock, paper, or scissors.</p>
 
-		<button onclick="playGame()">Play Game</button>
+    <div>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+
+    <div>
+      <div style="display: flex; flex-direction: row; gap: 1rem">
+        <p>You: <span id="humanChoice"></span></p>
+        <p>Bot: <span id="computerChoice"></span></p>
+      </div>
+      <p id="result" style="font-weight: bold"></p>
+    </div>
+
+    <h2>Game Score</h2>
+    <div style="display: flex; flex-direction: row; gap: 1rem">
+      <p>Your Score: <span id="userScore">0</span></p>
+      <p>Computer Score: <span id="computerScore">0</span></p>
+    </div>
+
+    <dialog>
+			<p id="winner"></p>
+			<button id="playAgain">Play Again?</button>
+		</dialog>
 
     <script src="script.js"></script>
   </body>

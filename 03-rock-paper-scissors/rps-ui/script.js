@@ -9,12 +9,22 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  return prompt("Rock, Paper, or Scissors?").toLowerCase();
-}
+document.getElementById("rock").addEventListener("click", () => {
+  playGame("rock");
+});
+
+document.getElementById("paper").addEventListener("click", () => {
+  playGame("paper");
+});
+
+document.getElementById("scissors").addEventListener("click", () => {
+  playGame("scissors");
+});
 
 function playRound(humanChoice, computerChoice) {
-  console.log(`You: ${humanChoice}, Bot: ${computerChoice}`);
+	// Show choices
+  document.getElementById("humanChoice").innerText = humanChoice;
+  document.getElementById("computerChoice").innerText = computerChoice;
 
   if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -29,42 +39,51 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  console.clear();
+let userScore = 0;
+let computerScore = 0;
 
-  let userScore = 0;
-  let computerScore = 0;
+function playGame(humanChoice) {
+  const result = playRound(humanChoice, getComputerChoice());
 
-  const rounds = 5;
-  for (let i = 0; i < rounds; i++) {
-    console.log("==================================");
-    console.log(`Round ${i + 1} of ${rounds}`);
-
-    const result = playRound(getHumanChoice(), getComputerChoice());
-
-    switch (result) {
-      case true:
-        userScore++;
-        console.log("ez win!");
-        break;
-      case false:
-        computerScore++;
-        console.log("You suck!");
-        break;
-      case "tie":
-        console.log("Tie!");
-        break;
-    }
+  switch (result) {
+    case true:
+      userScore++;
+      document.getElementById("result").innerText = "ez win!";
+      break;
+    case false:
+      computerScore++;
+      document.getElementById("result").innerText = "You suck!";
+      break;
+    case "tie":
+      document.getElementById("result").innerText = "Tie!";
+      break;
   }
+	// Update scores
+  document.getElementById("userScore").innerText = userScore;
+  document.getElementById("computerScore").innerText = computerScore;
 
-  console.log("==================================");
-  console.log(`Your score: ${userScore}, Computer score: ${computerScore}`);
+  getWinner(userScore, computerScore);
+}
 
-  if (userScore > computerScore) {
-    console.log("GGEZ");
-  } else if (userScore < computerScore) {
-    console.log("Nice try.");
-  } else {
-    console.log("Tie, you didn't' win.");
+function getWinner(userScore, computerScore) {
+  if (userScore >= 5) {
+    document.querySelector("dialog").showModal();
+    document.getElementById("winner").innerText = "You win! GGEZ!";
+  } else if (computerScore >= 5) {
+    document.querySelector("dialog").showModal();
+    document.getElementById("winner").innerText = "You suck! Bad try!";
   }
 }
+
+// Play again button
+document.getElementById("playAgain").addEventListener("click", () => {
+  document.querySelector("dialog").close();
+
+  // Reset scores
+  userScore = 0;
+  computerScore = 0;
+  document.getElementById("userScore").innerText = userScore;
+  document.getElementById("computerScore").innerText = computerScore;
+  document.getElementById("result").innerText = "";
+  document.getElementById("winner").innerText = "";
+});
