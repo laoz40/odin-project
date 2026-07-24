@@ -57,6 +57,14 @@ function playGame() {
 
   console.log("==================================");
   console.log(`Your score: ${userScore}, Computer score: ${computerScore}`);
+
+  if (userScore > computerScore) {
+    console.log("GGEZ");
+  } else if (userScore < computerScore) {
+    console.log("Nice try.");
+  } else {
+    console.log("Tie, you didn't' win.");
+  }
 }
 
 playGame();
