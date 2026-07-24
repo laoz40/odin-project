@@ -30,6 +30,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
+  console.clear();
+
   let userScore = 0;
   let computerScore = 0;
 
@@ -40,19 +42,19 @@ function playGame() {
 
     const result = playRound(getHumanChoice(), getComputerChoice());
 
-		switch (result) {
-			case true:
-				userScore++;
-				console.log("ez win!");
-				break;
-			case false:
-				computerScore++;
-				console.log("You suck!");
-				break;
-			case "tie":
-				console.log("Tie!");
-				break;
-		}
+    switch (result) {
+      case true:
+        userScore++;
+        console.log("ez win!");
+        break;
+      case false:
+        computerScore++;
+        console.log("You suck!");
+        break;
+      case "tie":
+        console.log("Tie!");
+        break;
+    }
   }
 
   console.log("==================================");
@@ -66,5 +68,3 @@ function playGame() {
     console.log("Tie, you didn't' win.");
   }
 }
-
-playGame();
