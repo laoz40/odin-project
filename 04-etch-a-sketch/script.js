@@ -5,7 +5,7 @@ function createSquares(gridSide) {
   for (let i = 0; i < gridSide ** 2; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
-		square.style.setProperty("--square-width", `calc(1000px / ${gridSide})`);
+    square.style.setProperty("--square-width", `calc(1000px / ${gridSide})`);
     container.appendChild(square);
   }
 
@@ -17,7 +17,8 @@ function addDrawEffect() {
   const squares = container.querySelectorAll(".square");
   squares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "black";
+      const randomColour = Math.floor(Math.random() * 255 ** 3).toString(16);
+      square.style.backgroundColor = `#${randomColour}`;
     });
   });
 }
