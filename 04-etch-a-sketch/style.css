@@ -23,3 +23,9 @@ body {
   height: var(--square-width);
   box-sizing: border-box;
 }
+
+a {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+}
