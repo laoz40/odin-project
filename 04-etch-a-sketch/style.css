@@ -1,8 +1,8 @@
 body {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 #container {
@@ -10,17 +10,16 @@ body {
   height: 1000px;
   display: flex;
   flex-wrap: wrap;
-	border: 1px solid black;
-	align-items: center;
-	justify-content: space-between;
-	gap: 0;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
 }
 
 .square {
   --square-width: calc(1000px / 16);
 
-  border: 1px solid black;
-	width: var(--square-width);
-	height: var(--square-width);
-	box-sizing: border-box;
+  width: var(--square-width);
+  height: var(--square-width);
+  box-sizing: border-box;
 }

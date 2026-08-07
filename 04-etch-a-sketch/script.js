@@ -6,6 +6,13 @@ function createSquares(gridSide) {
     const square = document.createElement("div");
     square.classList.add("square");
     square.style.setProperty("--square-width", `calc(1000px / ${gridSide})`);
+
+    const randomColour = Math.floor(Math.random() * (256 ** 3 - 1))
+      .toString(16)
+      .padStart(6, "0");
+    square.style.backgroundColor = `#${randomColour}`;
+    square.style.opacity = 0;
+
     container.appendChild(square);
   }
 
@@ -14,11 +21,14 @@ function createSquares(gridSide) {
 
 // Add draw effect
 function addDrawEffect() {
+  const container = document.getElementById("container");
   const squares = container.querySelectorAll(".square");
+
   squares.forEach((square) => {
+    let opacity = 0;
     square.addEventListener("mouseover", () => {
-      const randomColour = Math.floor(Math.random() * 255 ** 3).toString(16);
-      square.style.backgroundColor = `#${randomColour}`;
+      opacity = Math.min(opacity + 0.1, 1);
+      square.style.opacity = opacity;
     });
   });
 }
