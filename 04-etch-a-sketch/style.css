@@ -1,23 +1,24 @@
-:root {
-  --square-width: 60px;
-}
-
 body {
 	display: flex;
-	margin: 4rem;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	gap: 1rem;
 }
 
 #container {
-  width: calc(var(--square-width) * 16);
-  height: calc(var(--square-width) * 16);
+  width: 1000px;
+  height: 1000px;
   display: flex;
   flex-wrap: wrap;
 	border: 1px solid black;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0;
 }
 
 .square {
+  --square-width: calc(1000px / 16);
+
   border: 1px solid black;
 	width: var(--square-width);
 	height: var(--square-width);
