@@ -1,0 +1,25 @@
+:root {
+  --square-width: 60px;
+}
+
+body {
+	display: flex;
+	margin: 4rem;
+	align-items: center;
+	justify-content: center;
+}
+
+#container {
+  width: calc(var(--square-width) * 16);
+  height: calc(var(--square-width) * 16);
+  display: flex;
+  flex-wrap: wrap;
+	border: 1px solid black;
+}
+
+.square {
+  border: 1px solid black;
+	width: var(--square-width);
+	height: var(--square-width);
+	box-sizing: border-box;
+}
