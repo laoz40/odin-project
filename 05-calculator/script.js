@@ -52,6 +52,9 @@ const numberButtons = document.querySelectorAll(".number");
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
+		const value = button.dataset.value;
+
+
     if (calculated) {
       input = "";
       x = null;
@@ -60,6 +63,10 @@ numberButtons.forEach((button) => {
       display.value = "";
       calculated = false;
     }
+
+		if (value === "." && input.includes(".")) {
+			return;
+		}
 
     input += button.dataset.value;
     display.value = input;
