@@ -13,6 +13,9 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
+	if (y === 0) {
+		return "UR STUPID";
+	}
   return x / y;
 }
 
