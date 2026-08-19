@@ -36,6 +36,9 @@ function operate(x, y, operation) {
 const display = document.getElementById("display");
 const result = document.getElementById("result");
 
+display.value = "";
+result.textContent = "";
+
 // Numbers
 
 let input = "";
@@ -46,15 +49,14 @@ const numberButtons = document.querySelectorAll(".number");
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
-
-		if (calculated) {
-			input = "";
-			x = null;
-			operation = null;
-			result.textContent = "";
-			display.value = "";
-			calculated = false;
-		}
+    if (calculated) {
+      input = "";
+      x = null;
+      operation = null;
+      result.textContent = "";
+      display.value = "";
+      calculated = false;
+    }
 
     input += button.dataset.value;
     display.value = input;
@@ -93,14 +95,14 @@ operationButtons.forEach((button) => {
 const equalButton = document.getElementById("equal");
 
 equalButton.addEventListener("click", () => {
-	if (x === null || operation === null || input === "") return;
+  if (x === null || operation === null || input === "") return;
 
   const y = Number(input);
-	x = operate(x, y, operation);
-	result.textContent = x;
+  x = operate(x, y, operation);
+  result.textContent = x;
   operation = null;
   input = "";
-	calculated = true;
+  calculated = true;
 });
 
 // Clear Buttons
@@ -110,14 +112,16 @@ const clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", () => {
   input = "";
   display.value = "";
+  calculated = false;
 });
 
 const allClearButton = document.getElementById("allclear");
 
 allClearButton.addEventListener("click", () => {
   input = "";
-	x = null;
+  x = null;
   operation = null;
   display.value = "";
   result.textContent = "";
+  calculated = false;
 });
