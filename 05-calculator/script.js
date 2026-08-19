@@ -40,13 +40,23 @@ const result = document.getElementById("result");
 
 let input = "";
 let x = null;
+let calculated = false;
 
 const numberButtons = document.querySelectorAll(".number");
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    input += button.dataset.value;
 
+		if (calculated) {
+			input = "";
+			x = null;
+			operation = null;
+			result.textContent = "";
+			display.value = "";
+			calculated = false;
+		}
+
+    input += button.dataset.value;
     display.value = input;
   });
 });
@@ -90,6 +100,7 @@ equalButton.addEventListener("click", () => {
 	result.textContent = x;
   operation = null;
   input = "";
+	calculated = true;
 });
 
 // Clear Buttons
